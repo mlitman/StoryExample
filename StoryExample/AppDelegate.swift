@@ -14,7 +14,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    {
+        //Write our story
+        let firstPage = Page(pageText: "The first page text")
+        StoryCore.theStory = Story(startPage: firstPage)
+        StoryCore.currPage = firstPage
+
+        //create the options for our first page
+        let page2 = Page(pageText: "This is page2")
+        firstPage.addOption(Option(optionText: "Option #1", destinationPage: page2))
+        let page3 = Page(pageText: "This is page3")
+        firstPage.addOption(Option(optionText: "Option #2", destinationPage: page3))
+        let page4 = Page(pageText: "This is page4")
+        firstPage.addOption(Option(optionText: "Option #3", destinationPage: page4))
+        let page5 = Page(pageText: "This is page5")
+        firstPage.addOption(Option(optionText: "Option #4", destinationPage: page5))
+        
+        //add options to page 3
+        let page6 = Page(pageText: "This is page6")
+        let page7 = Page(pageText: "This is page7")
+        page3.addOption(Option(optionText: "Option #1", destinationPage: page6))
+        page3.addOption(Option(optionText: "Jump Log", destinationPage: page7))
+
+        
+        
+        
+        
         // Override point for customization after application launch.
         return true
     }
